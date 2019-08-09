@@ -1,0 +1,21 @@
+zuul:
+  routes:
+    area-service:
+      path: /area/**
+      serviceId: area-service
+    user-service:
+      path: /user/**
+      serviceId: user-service
+      stripPrefix: false
+#用户请求网关的熔断
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+#网关请求服务的熔断
+ribbon:
+  ConnectTimeout: 1000
+  ReadTimeout: 10000
