@@ -1,0 +1,24 @@
+server:
+  port: 8020
+spring:
+  application:
+    name: user-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8000/eureka
+feign:
+  hystrix:
+    enabled: true
+#客户访问网关的熔断
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+#网关请求服务的熔断
+ribbon:
+  ConnectTimeout: 1000
+  ReadTimeout: 10000
