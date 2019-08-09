@@ -1,0 +1,16 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8000/eureka
+server:
+  port: 8030
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          password: yangyinfengYYF173
+          uri: https://github.com/yinfengYang/spring-cloud-config
+          username: yinfengYang
